@@ -32,6 +32,19 @@ public class ListaEncadeada {
 		aux.setProx(novoNodo);
 	}
 	
+	public void pegarPenultimo(int dado) {
+		Nodo aux = inicio;
+		if(aux.getProx() == null) {
+			return;
+		}
+		else {
+			do {
+				aux.setProx(aux);
+			}while(aux.getProx().getProx() != null);
+		}
+		
+	}
+	
 	public void mostraLista() {
 		if (vazia()) {
 			System.out.println("Lista vazia");

@@ -4,21 +4,23 @@ public class MainLista {
 
 	public static void main(String[] args) {
 		
-		ListaEncadeada lista1 = new ListaEncadeada();
+		ListaCircular lista1 = new ListaCircular();
 		
 		lista1.inserirInicio(8);
 		lista1.inserirInicio(6);
 		lista1.inserirInicio(5);
-		lista1.mostraLista();
+		System.out.println(lista1.mostrarLista());
+		System.out.println("A quantidade de Nodos: "+lista1.contaNodos());
 		
-		lista1.inserirInicio(2);
-		lista1.mostraLista();
+		lista1.inserirFinal(2);
+		System.out.println(lista1.mostrarLista());
 		
-		lista1.deletaComValor(5);
-		lista1.mostraLista();
 		
-		lista1.inserirFinal(9);
-		lista1.mostraLista();
+//		lista1.deletaComValor(6);
+//		System.out.println(lista1.mostrarLista());
+//		
+//		lista1.inserirFinal(9);
+//		lista1.mostrarLista();
 	}
 
 }
