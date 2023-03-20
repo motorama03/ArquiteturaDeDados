@@ -17,6 +17,9 @@ public class ListaEncadeada {
 		return inicio;
 	}
 	
+	//public void deletarUltimo()
+	// Desenvolver esta aplicação;
+	
 	public void inserirInicio(int dado) {
 		Nodo novoNodo = new Nodo(dado);
 		novoNodo.setProx(inicio);
@@ -73,6 +76,19 @@ public class ListaEncadeada {
 			}
 			aux = aux.getProx();
 		}
+	}
+	
+	// Desenvolver isso tbm pq o arromabado lucas fez merda                                     
+	public int buscaValor(int valor) {
+		if(vazia()) {
+			return -1;
+		}
+		Nodo aux = inicio;
+		int posicao = 0;
+		while(aux != null) {
+			posicao++;
+		}return posicao;
+		
 	}
 	
 }

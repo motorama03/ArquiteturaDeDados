@@ -93,4 +93,7 @@ public class ListaCircular {
 		return lista;
 	}
 	
+	//public String buscaValorCircular()
+	// desenvolver!!
+	
 }
