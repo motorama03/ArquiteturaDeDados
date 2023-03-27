@@ -37,17 +37,19 @@ public class Main {
 		
 		// Fila MAIN
 //		
-//		Fila f1 = new Fila(5);
-//		f1.inserir(5);
-//		f1.inserir(7);
-//		f1.inserir(1);
-//		f1.inserir(10);
-//		
-//		f1.remover();
-//		f1.remover();
-//		f1.remover();
-//		f1.remover();
+		Fila f1 = new Fila(5);
+		f1.inserir(5);
+		f1.inserir(7);
+		f1.inserir(1);
+		f1.inserir(10);
 		
+		System.out.println(f1.remover());
+		System.out.println(f1.remover());
+		System.out.println(f1.remover());
+		System.out.println(f1.remover());
+		
+		
+		System.out.println("---Segunda Fila---");
 		Fila f2 = new Fila(5);
 		f2.inserir(5);
 		f2.inserir(3);
@@ -55,7 +57,25 @@ public class Main {
 		f2.inserir(6);
 		System.out.println(f2.filtro(5, true));
 		
+		System.out.println();
+		Fila F = new Fila(4);
+		Fila F_Pares = new Fila(4);
+		Fila F_Impares = new Fila(4);
+		F.inserir(5);
+		F.inserir(7);
+		F.inserir(1);
+		F.inserir(6);
 		
+		F.separarNumertos(F, F_Pares, F_Impares);
+		System.out.println("---Valores Ímpares---");
+		while(!F_Impares.estaVazio()) {
+			System.out.println(F_Impares.remover());
+		}
+		
+		System.out.println("---Valores pares---");
+		while(!F_Pares.estaVazio()) {
+			System.out.println(F_Pares.remover());
+		}
 		
 	}
 

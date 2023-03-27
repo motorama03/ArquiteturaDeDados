@@ -42,21 +42,17 @@ public class Fila implements Filtro {
 	}else
 		System.out.println("Fila cheia");
 	}	
-	public void remover() {
-
+	public Integer remover() {
 		if(estaVazio()) {
-			System.out.println("A fila esta vazia!");
-			return;
+			return null;
 		}
-		
-		System.out.println("Removido "+inicio.getDado()+" da fila");
-		inicio = inicio.getProx();	
-		if(tamanho == 1) {	
-			inicio = null;
+		int valor = inicio.getDado();
+		inicio = inicio.getProx();
+		tamanho--;
+		if(estaVazio()) {
 			fim = null;
 		}
-		
-		tamanho--;
+		return valor;
 	}
 	
 	@Override
@@ -88,6 +84,17 @@ public class Fila implements Filtro {
 		}
 		
 		return oFila;
+	}
+	
+	public void separarNumertos(Fila F, Fila F_Pares, Fila F_Impares) {
+		while(!F.estaVazio()) {
+			int num = F.remover();
+			if(num%2 == 0) {
+				F_Pares.inserir(num);
+			}else {
+				F_Impares.inserir(num);
+			}
+		}
 	}
 	
 }
