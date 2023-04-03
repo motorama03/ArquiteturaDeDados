@@ -14,8 +14,8 @@ public class MainListaDup {
 		
 		l1.removeComValor(3);
 		System.out.println(l1.mostrarLista());
-		//l1.removerFinal();
-		//System.out.println(l1.mostrarLista());
+		l1.removerFinal();
+		System.out.println(l1.mostrarLista());
 		
 	}
 

@@ -22,12 +22,17 @@ public class ListaEncadeada {
 	
 	public void inserirInicio(int dado) {
 		Nodo novoNodo = new Nodo(dado);
-		novoNodo.setProx(inicio);
-		inicio = novoNodo;
+		if(inicio == null) {
+			novoNodo.setProx(inicio);
+			inicio = novoNodo;
+		}else inserirFinal(dado);
 	}
 	
 	public void inserirFinal(int dado) {
 		Nodo novoNodo = new Nodo(dado);
+		if(inicio == null)
+			inserirInicio(dado);
+		
 		Nodo aux = inicio;
 		while(aux.getProx() != null) {
 			aux = aux.getProx();
