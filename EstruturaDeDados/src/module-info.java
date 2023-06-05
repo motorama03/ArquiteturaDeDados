@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author covid
+ * @author alunos
  *
  */
 module EstruturaDeDados {
