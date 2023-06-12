@@ -3,8 +3,7 @@ package metodosOrdenação;
 public class MetodosOrdenacao {
 	
 	public boolean verificaOrdenacao(int array[]) {
-		boolean ordenado = true;
-		
+		boolean ordenado = true;		
 		int primeiro = 0;
 		int seguinte = 0;
 		for(int i = 0; i < array.length-1; i++) {
@@ -23,10 +22,9 @@ public class MetodosOrdenacao {
 		if(!verificaOrdenacao(array)){
 			for(int i = 0; i<array.length; i++) {
 				for(int j = 0; j<array.length-i-1; j++) {
-					boolean continua;
-
+					boolean continua = true;
 					do{
-						continua = true;
+//						continua = true;
 						int atual = array[i];
 						int prox = array[j];
 						if (!(atual > prox))continua = false;
