@@ -77,4 +77,30 @@ public class MetodosOrdenacao {
 		}
 		return array;
 	}
+	
+    public void radixSort(int[] array) {
+        int max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (max < array[i])
+                max = array[i];
+        }
+        for (int s = 1; max / s > 0; s *= 10)
+            countingSortForRadix(array, s);
+    }
+    public void countingSortForRadix(int[] array, int s) {
+        int[] countingArray = new int[10];
+        for (int i = 0; i < array.length; i++)
+            countingArray[(array[i] / s) % 10]++;
+        for (int i = 1; i < 10; i++)
+            countingArray[i] += countingArray[i - 1];
+        int[] outputArray = new int[array.length];
+        for (int i = array.length - 1; i >= 0; i--)
+            outputArray[--countingArray[(array[i] / s) % 10]] = array[i];
+        for (int i = 0; i < array.length; i++)
+            array[i] = outputArray[i];
+    }
+    
+    public void ALGORITMO(int[] array) {
+    	
+    }
 }
