@@ -1,5 +1,7 @@
 package metodosOrdenação;
 
+import java.util.Arrays;
+
 public class MetodosOrdenacao {
 	
 	public boolean verificaOrdenacao(int array[]) {
@@ -65,42 +67,65 @@ public class MetodosOrdenacao {
 	
 	public int[] insertionSort(int array[]) {
 		int pivo, j;
-		if(verificaOrdenacao(array))return array;
+		int Comparacao = 0;
+		int troca = 0;
+		//if(verificaOrdenacao(array))return array;
 		for(int i = 0; i<array.length;i++) {
 			pivo = array[i];
+			Comparacao ++;
 			j = i-1;
 			while(j>=0 && array[j]>pivo) {
+				troca++;
 				array[j+1] = array[j];
 				j=j-1;
 			}
 			array[j+1]=pivo;
 		}
+		System.out.println("Quantidade de comparacoes: "+Comparacao+"\nQuantidade de trocas: "+troca);
 		return array;
 	}
 	
-    public void radixSort(int[] array) {
-        int max = array[0];
-        for (int i = 1; i < array.length; i++) {
-            if (max < array[i])
-                max = array[i];
+    public static void countingSort(int[] vetor, int exp) {
+        int n = vetor.length;
+        int[] output = new int[n];
+        int[] count = new int[10];
+        int troca = 0;
+        int comparacao = 0;
+
+        for (int i = 0; i < n; i++) {
+        	comparacao++;
+            int index = vetor[i] / exp;
+            count[index % 10]++;
         }
-        for (int s = 1; max / s > 0; s *= 10)
-            countingSortForRadix(array, s);
+
+        for (int i = 1; i < 10; i++) {
+            count[i] += count[i - 1];
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            int index = vetor[i] / exp;
+            output[count[index % 10] - 1] = vetor[i];
+            count[index % 10]--;
+        }
+
+        for (int i = 0; i < n; i++) {
+            vetor[i] = output[i];
+            troca++;
+        }
+        System.out.println("Quantidade de comparacoes: "+comparacao+"\nQuantidade de trocas: "+troca);
     }
-    public void countingSortForRadix(int[] array, int s) {
-        int[] countingArray = new int[10];
-        for (int i = 0; i < array.length; i++)
-            countingArray[(array[i] / s) % 10]++;
-        for (int i = 1; i < 10; i++)
-            countingArray[i] += countingArray[i - 1];
-        int[] outputArray = new int[array.length];
-        for (int i = array.length - 1; i >= 0; i--)
-            outputArray[--countingArray[(array[i] / s) % 10]] = array[i];
-        for (int i = 0; i < array.length; i++)
-            array[i] = outputArray[i];
+
+    public static void radixSort(int[] vetor) {
+        int max_num = Arrays.stream(vetor).max().getAsInt();
+        int exp = 1;
+
+        while (max_num / exp > 0) {
+            countingSort(vetor, exp);
+            exp *= 10;
+        }
     }
     
     public void ALGORITMO(int[] array) {
     	
-    }
+	}
 }
